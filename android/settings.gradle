@@ -1,0 +1,3 @@
+rootProject.name = 'ListaReduxNative'
+
+include ':app'
