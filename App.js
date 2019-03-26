@@ -39,11 +39,14 @@ const styles = StyleSheet.create({
   containerAddItem: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 12,
   },
   inputItem: {
+    flex: 1,
     borderWidth: 1,
     borderRadius: 5,
-    height: 32
+    height: 32,
+    padding: 8,
   },
   actionButton: {
     borderWidth: 1,
@@ -52,9 +55,12 @@ const styles = StyleSheet.create({
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: 12,
+    backgroundColor: '#0080ff'
   },
   labelButton: {
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+    color: '#FFFFFF'
   }
 });
