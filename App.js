@@ -7,13 +7,19 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lista de Frutas</Text>
+        <View style={styles.containerAddItem}>
+          <TextInput style={styles.inputItem} />
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.labelButton}>+</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -29,5 +35,26 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 22,
     fontWeight: 'bold'
+  },
+  containerAddItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  inputItem: {
+    borderWidth: 1,
+    borderRadius: 5,
+    height: 32
+  },
+  actionButton: {
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  labelButton: {
+    fontWeight: 'bold',
+    fontSize: 20
   }
 });
