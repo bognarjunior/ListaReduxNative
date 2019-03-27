@@ -11,6 +11,21 @@ import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
 
 export default class App extends Component {
   render() {
+    const fruits = [
+      {
+        id: 1,
+        name:'Banana'
+      }, 
+      {
+        id: 2,
+        name:'Morango'
+      }, 
+      {
+        id: 3,
+        name:'Pera'
+      }
+    ];
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lista de Frutas</Text>
@@ -19,6 +34,18 @@ export default class App extends Component {
           <TouchableOpacity style={styles.actionButton}>
             <Text style={styles.labelButton}>+</Text>
           </TouchableOpacity>
+        </View>
+        <View>
+          {fruits.map( fruit => (
+            <View key={fruit.id} style={styles.containerListItems}>
+              <Text style={styles.labelItem}>
+                {fruit.name}
+              </Text>
+              <TouchableOpacity style={styles.actionButton}>
+                <Text style={styles.labelButton}>X</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
         </View>
       </View>
     );
@@ -40,6 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
+    marginBottom: 12,
   },
   inputItem: {
     flex: 1,
@@ -62,5 +90,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: '#FFFFFF'
+  },
+  containerListItems: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 12,
+    marginBottom: 4
+  },
+  labelItem: {
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 });
