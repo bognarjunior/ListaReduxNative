@@ -28,25 +28,30 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Lista de Frutas</Text>
-        <View style={styles.containerAddItem}>
-          <TextInput style={styles.inputItem} />
-          <TouchableOpacity style={styles.actionButton}>
-            <Text style={styles.labelButton}>+</Text>
-          </TouchableOpacity>
-        </View>
         <View>
-          {fruits.map( fruit => (
-            <View key={fruit.id} style={styles.containerListItems}>
-              <Text style={styles.labelItem}>
-                {fruit.name}
-              </Text>
-              <TouchableOpacity style={styles.actionButton}>
-                <Text style={styles.labelButton}>X</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+          <Text style={styles.title}>Lista de Frutas</Text>
+          <View style={styles.containerAddItem}>
+            <TextInput style={styles.inputItem} />
+            <TouchableOpacity style={styles.actionButton}>
+              <Text style={styles.labelButton}>+</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            {fruits.map( fruit => (
+              <View key={fruit.id} style={styles.containerListItems}>
+                <Text style={styles.labelItem}>
+                  {fruit.name}
+                </Text>
+                <TouchableOpacity style={styles.actionButton}>
+                  <Text style={styles.labelButton}>X</Text>
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
         </View>
+        <TouchableOpacity style={styles.clearList}>
+          <Text style={styles.labelButton}>Limpar Lista</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -57,6 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
     paddingTop: 24,
+    justifyContent: 'space-between'
   },
   title: {
     alignSelf: 'center',
@@ -101,5 +107,14 @@ const styles = StyleSheet.create({
   labelItem: {
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  clearList: {
+    borderWidth: 1,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 16,
+    height: 32,
+    backgroundColor: '#0080ff'
   }
 });
