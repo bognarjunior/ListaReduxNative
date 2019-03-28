@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import Title from './components/Title';
+import ActionButton from './components/ActionButton';
 
 export default class App extends Component {
   render() {
@@ -33,9 +34,7 @@ export default class App extends Component {
           <Title text="Lista de Frutas" />
           <View style={styles.containerAddItem}>
             <TextInput style={styles.inputItem} />
-            <TouchableOpacity style={styles.actionButton}>
-              <Text style={styles.labelButton}>+</Text>
-            </TouchableOpacity>
+                <ActionButton text="+" />
           </View>
           <View>
             {fruits.map( fruit => (
@@ -43,9 +42,7 @@ export default class App extends Component {
                 <Text style={styles.labelItem}>
                   {fruit.name}
                 </Text>
-                <TouchableOpacity style={styles.actionButton}>
-                  <Text style={styles.labelButton}>X</Text>
-                </TouchableOpacity>
+                <ActionButton text="X" />
               </View>
             ))}
           </View>
@@ -79,21 +76,7 @@ const styles = StyleSheet.create({
     height: 32,
     padding: 8,
   },
-  actionButton: {
-    borderWidth: 1,
-    borderRadius: 5,
-    width: 32,
-    height: 32,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 12,
-    backgroundColor: '#0080ff'
-  },
-  labelButton: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#FFFFFF'
-  },
+  
   containerListItems: {
     flexDirection: 'row',
     alignItems: 'center',
