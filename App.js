@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import Title from './components/Title';
 
 export default class App extends Component {
   render() {
@@ -29,7 +30,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.title}>Lista de Frutas</Text>
+          <Title text="Lista de Frutas" />
           <View style={styles.containerAddItem}>
             <TextInput style={styles.inputItem} />
             <TouchableOpacity style={styles.actionButton}>
@@ -64,11 +65,7 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     justifyContent: 'space-between'
   },
-  title: {
-    alignSelf: 'center',
-    fontSize: 22,
-    fontWeight: 'bold'
-  },
+  
   containerAddItem: {
     flexDirection: 'row',
     alignItems: 'center',
