@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import Title from './components/Title';
 import ActionButton from './components/ActionButton';
+import AddItem from './components/AddItem';
 
 export default class App extends Component {
   render() {
@@ -32,10 +33,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <View>
           <Title text="Lista de Frutas" />
-          <View style={styles.containerAddItem}>
-            <TextInput style={styles.inputItem} />
-                <ActionButton text="+" />
-          </View>
+          <AddItem />
           <View>
             {fruits.map( fruit => (
               <View key={fruit.id} style={styles.containerListItems}>
@@ -62,21 +60,6 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     justifyContent: 'space-between'
   },
-  
-  containerAddItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 12,
-    marginBottom: 12,
-  },
-  inputItem: {
-    flex: 1,
-    borderWidth: 1,
-    borderRadius: 5,
-    height: 32,
-    padding: 8,
-  },
-  
   containerListItems: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -96,5 +79,10 @@ const styles = StyleSheet.create({
     margin: 16,
     height: 32,
     backgroundColor: '#0080ff'
-  }
+  },
+  labelButton: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#FFFFFF'
+  },
 });

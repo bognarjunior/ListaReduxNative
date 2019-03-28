@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const ActionButton = props => {
   return (
