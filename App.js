@@ -11,6 +11,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Title from './components/Title';
 import AddItem from './components/AddItem';
 import ListItems from './components/ListItems';
+import ClearList from './components/ClearList';
 
 export default class App extends Component {
   render() {
@@ -40,9 +41,7 @@ export default class App extends Component {
           <AddItem />
           <ListItems items={fruits}/>
         </View>
-        <TouchableOpacity style={styles.clearList}>
-          <Text style={styles.labelButton}>Limpar Lista</Text>
-        </TouchableOpacity>
+        <ClearList text="Limpar Lista" />
       </View>
     );
   }
@@ -54,19 +53,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     paddingTop: 24,
     justifyContent: 'space-between'
-  },
-  clearList: {
-    borderWidth: 1,
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 16,
-    height: 32,
-    backgroundColor: '#0080ff'
-  },
-  labelButton: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#FFFFFF'
-  },
+  }
 });
