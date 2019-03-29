@@ -7,10 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Title from './components/Title';
-import ActionButton from './components/ActionButton';
 import AddItem from './components/AddItem';
+import ListItems from './components/ListItems';
 
 export default class App extends Component {
   render() {
@@ -34,16 +34,7 @@ export default class App extends Component {
         <View>
           <Title text="Lista de Frutas" />
           <AddItem />
-          <View>
-            {fruits.map( fruit => (
-              <View key={fruit.id} style={styles.containerListItems}>
-                <Text style={styles.labelItem}>
-                  {fruit.name}
-                </Text>
-                <ActionButton text="X" />
-              </View>
-            ))}
-          </View>
+          <ListItems items={fruits}/>
         </View>
         <TouchableOpacity style={styles.clearList}>
           <Text style={styles.labelButton}>Limpar Lista</Text>
@@ -59,17 +50,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     paddingTop: 24,
     justifyContent: 'space-between'
-  },
-  containerListItems: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 12,
-    marginBottom: 4
-  },
-  labelItem: {
-    fontSize: 20,
-    fontWeight: 'bold'
   },
   clearList: {
     borderWidth: 1,
