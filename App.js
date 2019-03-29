@@ -26,6 +26,10 @@ export default class App extends Component {
       {
         id: 3,
         name:'Pera'
+      },
+      {
+        id: 4,
+        name:'Uva'
       }
     ];
 
