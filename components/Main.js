@@ -1,37 +1,22 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+import { connect } from 'react-redux';
+
 import Title from './Title';
 import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ClearList from './ClearList';
 
-export default class Main extends Component {
+class Main extends Component {
   render() {
-    const fruits = [
-      {
-        id: 1,
-        name:'Banana'
-      }, 
-      {
-        id: 2,
-        name:'Morango'
-      }, 
-      {
-        id: 3,
-        name:'Pera'
-      },
-      {
-        id: 4,
-        name:'Uva'
-      }
-    ];
+    const {items} = this.props;
 
     return (
       <View style={styles.container}>
         <View>
           <Title text="Lista de Frutas" />
           <AddItem />
-          <ListItems items={fruits}/>
+          <ListItems items={items}/>
         </View>
         <ClearList text="Limpar Lista" />
       </View>
@@ -47,3 +32,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   }
 });
+
+const mapStateToProps = state => {
+  return {
+		items: state
+  }
+}
+export default connect(mapStateToProps)(Main);
