@@ -15,9 +15,11 @@ export default class AddItem extends Component {
   }
 
   onPress = () => {
-    this.props.onAddItem(this.state.value);
-    
-    this.setState({ value: '' });
+    const {value} = this.state;
+    if (value != '') {
+      this.props.onAddItem(value);
+      this.setState({ value: '' });
+    }
   }
 
   render() {

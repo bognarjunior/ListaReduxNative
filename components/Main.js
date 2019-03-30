@@ -9,11 +9,17 @@ import ClearList from './ClearList';
 
 class Main extends Component {
 
-  
   onAddItem = text => {
     this.props.dispatch({
       type: 'ADICIONAR_ITEM',
       value: text
+    });
+  }
+
+  onRemoveItem = id => {
+    this.props.dispatch({
+      type: 'REMOVER_ITEM',
+      id
     });
   }
 
@@ -23,7 +29,7 @@ class Main extends Component {
         <View>
           <Title text="Lista de Frutas" />
           <AddItem onAddItem={this.onAddItem} />
-          <ListItems items={this.props.items}/>
+          <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
         </View>
         <ClearList text="Limpar Lista" />
       </View>

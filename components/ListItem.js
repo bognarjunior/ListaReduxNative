@@ -8,7 +8,7 @@ const ListItem = props => {
 			<Text style={styles.labelItem}>
 				{props.item.value}
 			</Text>
-			<ActionButton text="X" />
+			<ActionButton text="X" onPress={props.onRemove} />
 		</View>
   )
 }

@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
 			}]);
 	
 		case "REMOVER_ITEM":
-			return state;
+			return state.filter(item => item.id !== action.id);
 
 		case "LIMPAR_LISTA":
 			return state;
