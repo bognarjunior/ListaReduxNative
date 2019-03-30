@@ -23,6 +23,12 @@ class Main extends Component {
     });
   }
 
+  onClearList = () => {
+    this.props.dispatch({
+      type: 'LIMPAR_LISTA'
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +37,7 @@ class Main extends Component {
           <AddItem onAddItem={this.onAddItem} />
           <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
         </View>
-        <ClearList text="Limpar Lista" />
+        <ClearList text="Limpar Lista" onPress={this.onClearList} />
       </View>
     );
   }

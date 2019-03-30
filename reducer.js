@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
 			return state.filter(item => item.id !== action.id);
 
 		case "LIMPAR_LISTA":
-			return state;
+			return [];
 		  
 		default:
 		  return state;

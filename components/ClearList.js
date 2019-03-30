@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const ClearList = props => {
   return (
-    <TouchableOpacity style={styles.clearList}>
+    <TouchableOpacity style={styles.clearList} onPress={props.onPress}>
 			<Text style={styles.labelButton}>{props.text}</Text>
 		</TouchableOpacity>
   )
