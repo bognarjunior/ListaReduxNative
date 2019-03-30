@@ -3,10 +3,23 @@ import { View, TextInput, StyleSheet } from 'react-native';
 import ActionButton from './ActionButton';
 
 export default class AddItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+    }
+  }
+
+  onChangeText = (text) => {
+    this.setState({ value: text });
+  }
+
   render() {
+    const {value} = this.state;
+
     return (
       <View style={styles.containerAddItem}>
-        <TextInput style={styles.inputItem} />
+        <TextInput style={styles.inputItem}  value={value} onChangeText={this.onChangeText}/>
           <ActionButton text="+" />
       </View>
     )
