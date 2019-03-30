@@ -18,5 +18,6 @@ const initialState = [
 ];
 
 export default (state = initialState, action) => {
+	console.log('Reducer', action)
 	return state;
 };

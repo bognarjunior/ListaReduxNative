@@ -8,14 +8,24 @@ import ListItems from './ListItems';
 import ClearList from './ClearList';
 
 class Main extends Component {
+
+  
+  onAddItem = text => {
+    this.props.dispatch({
+      type: 'ADICIONAR_ITEM',
+      name: text
+    });
+  }
+
   render() {
     const {items} = this.props;
+    
 
     return (
       <View style={styles.container}>
         <View>
           <Title text="Lista de Frutas" />
-          <AddItem />
+          <AddItem onAddItem={this.onAddItem} />
           <ListItems items={items}/>
         </View>
         <ClearList text="Limpar Lista" />

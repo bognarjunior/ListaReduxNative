@@ -10,17 +10,20 @@ export default class AddItem extends Component {
     }
   }
 
-  onChangeText = (text) => {
+  onChangeText = text => {
+    console.log(text)
     this.setState({ value: text });
   }
 
-  render() {
-    const {value} = this.state;
+  onPress = () => {
+    this.props.onAddItem(this.state.value);
+  }
 
+  render() {
     return (
       <View style={styles.containerAddItem}>
-        <TextInput style={styles.inputItem}  value={value} onChangeText={this.onChangeText}/>
-          <ActionButton text="+" />
+        <TextInput style={styles.inputItem}  value={this.state.value} onChangeText={this.onChangeText}/>
+          <ActionButton text="+" onPress={this.onPress}/>
       </View>
     )
   }
