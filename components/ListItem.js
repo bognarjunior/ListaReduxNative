@@ -6,7 +6,7 @@ const ListItem = props => {
   return (
     <View key={props.item.id} style={styles.containerListItems}>
 			<Text style={styles.labelItem}>
-				{props.item.name}
+				{props.item.value}
 			</Text>
 			<ActionButton text="X" />
 		</View>

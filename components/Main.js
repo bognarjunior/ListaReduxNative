@@ -13,20 +13,17 @@ class Main extends Component {
   onAddItem = text => {
     this.props.dispatch({
       type: 'ADICIONAR_ITEM',
-      name: text
+      value: text
     });
   }
 
   render() {
-    const {items} = this.props;
-    
-
     return (
       <View style={styles.container}>
         <View>
           <Title text="Lista de Frutas" />
           <AddItem onAddItem={this.onAddItem} />
-          <ListItems items={items}/>
+          <ListItems items={this.props.items}/>
         </View>
         <ClearList text="Limpar Lista" />
       </View>

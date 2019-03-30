@@ -1,23 +1,38 @@
 const initialState = [
 	{
 		id: 1,
-		name:'Banana'
+		value:'Banana'
 	}, 
 	{
 		id: 2,
-		name:'Morango'
+		value:'Morango'
 	}, 
 	{
 		id: 3,
-		name:'Pera'
+		value:'Pera'
 	},
 	{
 		id: 4,
-		name:'Uva'
+		value:'Uva'
 	}
 ];
 
 export default (state = initialState, action) => {
-	console.log('Reducer', action)
-	return state;
+	switch (action.type) {
+		case "ADICIONAR_ITEM":
+			const id = state.length + 1;
+			return state.concat([{
+				id: id,
+				value: action.value
+			}]);
+	
+		case "REMOVER_ITEM":
+			return state;
+
+		case "LIMPAR_LISTA":
+			return state;
+		  
+		default:
+		  return state;
+	  }
 };

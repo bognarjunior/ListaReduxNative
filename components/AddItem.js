@@ -11,12 +11,13 @@ export default class AddItem extends Component {
   }
 
   onChangeText = text => {
-    console.log(text)
     this.setState({ value: text });
   }
 
   onPress = () => {
     this.props.onAddItem(this.state.value);
+    
+    this.setState({ value: '' });
   }
 
   render() {
