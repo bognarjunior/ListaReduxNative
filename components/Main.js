@@ -7,19 +7,20 @@ import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ClearList from './ClearList';
 import { addItem, removeItem, clearList } from './../actions';
+import { bindActionCreators } from 'redux';
 
 class Main extends Component {
 
   onAddItem = text => {
-    this.props.dispatch(addItem(text));
+    this.props.addItem(text);
   }
 
   onRemoveItem = id => {
-    this.props.dispatch(removeItem(id));
+    this.props.removeItem(id);
   }
 
   onClearList = () => {
-    this.props.dispatch(clearList());
+    this.props.clearList();
   }
 
   render() {
@@ -50,4 +51,13 @@ const mapStateToProps = state => {
 		items: state
   }
 }
-export default connect(mapStateToProps)(Main);
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    addItem,
+    removeItem,
+    clearList
+  }, dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Main);
