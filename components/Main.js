@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Title from './Title';
@@ -7,7 +8,6 @@ import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ClearList from './ClearList';
 import { addItem, removeItem, clearList } from './../actions';
-import { bindActionCreators } from 'redux';
 
 class Main extends Component {
 
