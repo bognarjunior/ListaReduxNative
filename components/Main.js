@@ -6,27 +6,20 @@ import Title from './Title';
 import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ClearList from './ClearList';
+import { addItem, removeItem, clearList } from './../actions';
 
 class Main extends Component {
 
   onAddItem = text => {
-    this.props.dispatch({
-      type: 'ADICIONAR_ITEM',
-      value: text
-    });
+    this.props.dispatch(addItem(text));
   }
 
   onRemoveItem = id => {
-    this.props.dispatch({
-      type: 'REMOVER_ITEM',
-      id
-    });
+    this.props.dispatch(removeItem(id));
   }
 
   onClearList = () => {
-    this.props.dispatch({
-      type: 'LIMPAR_LISTA'
-    });
+    this.props.dispatch(clearList());
   }
 
   render() {
