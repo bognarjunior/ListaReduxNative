@@ -18,10 +18,17 @@ export default (state = initialState, action) => {
 		case "CLEAR_LIST":
 			return [];
 
-		case "GET_ITEM_REQUEST":
+		case "GET_ITEMS_REQUEST":
 			return {
 				...state,
 				loadingItems: true
+			};
+
+		case "GET_ITEMS_COMPLETE":
+			return {
+				...state,
+				loadingItems: false,
+				items: action.payload
 			};
 		  
 		default:
