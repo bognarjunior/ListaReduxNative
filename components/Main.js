@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ActivityIndicator, Text} from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -33,7 +33,14 @@ class Main extends Component {
         <View>
           <Title text="Lista de Frutas" />
           <AddItem onAddItem={this.onAddItem} />
-          <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
+          { this.props.loadingItems ? (
+            <View style={styles.loader}>
+              <ActivityIndicator size="large" color="#0000ff" />
+              <Text>Carregando...</Text>
+            </View>
+          ):(
+            <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
+          )}
         </View>
         <ClearList text="Limpar Lista" onPress={this.onClearList} />
       </View>
@@ -47,12 +54,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     paddingTop: 24,
     justifyContent: 'space-between'
+  },
+  loader: {
+    paddingTop: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 
 const mapStateToProps = state => {
   return {
-		items: state
+    items: state.items,
+    loadingItems: state.loadingItems
   }
 }
 

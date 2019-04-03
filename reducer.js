@@ -1,4 +1,7 @@
-const initialState = [];
+const initialState = {
+	items: [],
+	loadingItems: false
+};
 
 export default (state = initialState, action) => {
 	switch (action.type) {
@@ -16,7 +19,10 @@ export default (state = initialState, action) => {
 			return [];
 
 		case "GET_ITEM_REQUEST":
-			return [];
+			return {
+				...state,
+				loadingItems: true
+			};
 		  
 		default:
 		  return state;
