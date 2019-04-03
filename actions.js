@@ -1,19 +1,25 @@
+export const getItems = () => {
+	return {
+		type: 'GET_ITEMS'
+	};
+}
+
 export const addItem = value => {
 	return {
-		type: 'ADICIONAR_ITEM',
+		type: 'ADD_ITEM',
 		value
 	}
 }
 
 export const removeItem = id => {
 	return {
-		type: 'REMOVER_ITEM',
+		type: 'REMOVE_ITEM',
 		id
 	};
 }
 
 export const clearList = () => {
 	return {
-		type: 'LIMPAR_LISTA'
+		type: 'CLEAR_LIST'
 	};
 }

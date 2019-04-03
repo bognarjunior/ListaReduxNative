@@ -7,9 +7,13 @@ import Title from './Title';
 import AddItem from './AddItem';
 import ListItems from './ListItems';
 import ClearList from './ClearList';
-import { addItem, removeItem, clearList } from './../actions';
+import { addItem, removeItem, clearList, getItems } from './../actions';
 
 class Main extends Component {
+
+  componentDidMount() {
+    this.props.getItems();
+  }
 
   onAddItem = text => {
     this.props.addItem(text);
@@ -56,7 +60,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     addItem,
     removeItem,
-    clearList
+    clearList,
+    getItems
   }, dispatch)
 }
 

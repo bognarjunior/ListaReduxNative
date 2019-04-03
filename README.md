@@ -21,33 +21,33 @@
 
 Para mudar o estado do aplicativo
 
-## ADICIONAR_ITEM
+## ADD_ITEM
 {
-    type: 'ADICIONAR_ITEM',
+    type: 'ADD_ITEM',
     id: 1,
     name: 'String'
 }
 
-## REMOVER_ITEM
+## REMOVE_ITEM
 {
-    type: 'REMOVER_ITEM',
+    type: 'REMOVE_ITEM',
     id: 1
 }
 
-## LIMPAR_LISTA
+## CLEAR_LISTA
 {
-    type: 'LIMPAR_LISTA'
+    type: 'CLEAR_LISTA'
 }
 
 # Reducer (Redutor)
 
 Se receber a ação
 
-## ADICIONAR_ITEM
+## ADD_ITEM
 Retorna uma nova lista, incluindo o item fornecido pela ação
 
-## REMOVER_ITEM
+## REMOVE_ITEM
 Retorna uma nova lista, excluindo o item que é encontrado pelo id fornecido pela ação
 
-## LIMPAR_LISTA
+## CLEAR_LISTA
 Retorna uma lista vazia

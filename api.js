@@ -1,5 +1,22 @@
-let items = [];
-let lastId = 0;
+let items = [
+	{
+		id: 1,
+		value:'Banana'
+	}, 
+	{
+		id: 2,
+		value:'Morango'
+	}, 
+	{
+		id: 3,
+		value:'Pera'
+	},
+	{
+		id: 4,
+		value:'Uva'
+	}
+];
+let lastId = 4;
 
 const getItems = () => {
 	return new Promise((resolve, reject) => {
