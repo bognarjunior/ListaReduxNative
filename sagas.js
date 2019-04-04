@@ -2,16 +2,22 @@ import { takeLatest, put,call } from 'redux-saga/effects';
 import API from './api';
 
 function* getItems(action) {
-	console.log('saga', action)
-	yield put({ type: 'GET_ITEMS_REQUEST' });
+	try {
+		yield put({ type: 'GET_ITEMS_REQUEST' });
 
-	const items = yield call(API.getItems);
-	console.log('items -> ', items)
+		const items = yield call(API.getItems);
+		yield put({ 
+			type: 'GET_ITEMS_COMPLETE',
+			payload: items
+		});
 
-	yield put({ 
-		type: 'GET_ITEMS_COMPLETE',
-		payload: items
-	})
+	} catch (error) {
+		
+		yield put({ 
+			type: 'GET_ITEMS_ERROR',
+			error: error.message
+		});
+	}
 }
 
 function* rootSaga() {

@@ -27,6 +27,19 @@ class Main extends Component {
     this.props.clearList();
   }
 
+  renderList = () => {
+    if (this.props.error) {
+      return (
+        <View style={styles.errorView}>
+          <Text style={styles.titleError}>Opsss!</Text>
+          <Text style={styles.msgError}>{this.props.error}</Text>
+        </View>
+      )
+    } else {
+      return <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -39,7 +52,7 @@ class Main extends Component {
               <Text>Carregando...</Text>
             </View>
           ):(
-            <ListItems items={this.props.items} onRemoveItem={this.onRemoveItem}/>
+            this.renderList()
           )}
         </View>
         <ClearList text="Limpar Lista" onPress={this.onClearList} />
@@ -59,13 +72,28 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  errorView: {
+    padding: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  titleError: {
+    color: '#ff6666',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  msgError: {
+    color: '#52527a',
+    fontSize: 16,
   }
 });
 
 const mapStateToProps = state => {
   return {
     items: state.items,
-    loadingItems: state.loadingItems
+    loadingItems: state.loadingItems,
+    error: state.error
   }
 }
 

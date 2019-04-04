@@ -1,6 +1,7 @@
 const initialState = {
 	items: [],
-	loadingItems: false
+	loadingItems: false,
+	error: null
 };
 
 export default (state = initialState, action) => {
@@ -29,6 +30,13 @@ export default (state = initialState, action) => {
 				...state,
 				loadingItems: false,
 				items: action.payload
+			};
+
+		case "GET_ITEMS_ERROR":
+			return {
+				...state,
+				loadingItems: false,
+				error: action.error
 			};
 		  
 		default:

@@ -22,6 +22,7 @@ const getItems = () => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			resolve(items);
+			// reject(new Error('Marcianos estão atacando a Terra, mas não se preocupe, já estamos cuidando disso!!'));
 		}, 3000);
 	});
 }
