@@ -1,4 +1,4 @@
-import { takeLatest, put,call } from 'redux-saga/effects';
+import { takeLatest, put,call,takeEvery } from 'redux-saga/effects';
 import API from './api';
 
 function* getItems() {
@@ -61,7 +61,7 @@ function* removeItem(action) {
 function* rootSaga() {
   yield takeLatest('GET_ITEMS', getItems);
   yield takeLatest('ADD_ITEM', addItem);
-  yield takeLatest('REMOVE_ITEM', removeItem);
+  yield takeEvery('REMOVE_ITEM', removeItem);
 }
 
 export default rootSaga;
