@@ -31,12 +31,13 @@ const addItem = (value) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			const id = ++lastId;
-			items = items.concat([
-				{
-					value,
-					id
-				}
-			]);
+			const item = {
+				value,
+				id
+			}
+			console.log(item)
+			items = items.concat([item]);
+			resolve(item)
 		}, 3000);
 	});
 }

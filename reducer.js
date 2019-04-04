@@ -6,12 +6,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case "ADD_ITEM":
-			const id = state.length > 0 ? state[state.length - 1].id + 1 : 1;
-			return state.concat([{
-				id: id,
-				value: action.value
-			}]);
+		case "ADD_ITEM_COMPLETE":
+			return {
+				...state,
+				items: state.items.concat([action.payload])
+			} 
 	
 		case "REMOVE_ITEM":
 			return state.filter(item => item.id !== action.id);

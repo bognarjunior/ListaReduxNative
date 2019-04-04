@@ -9,6 +9,7 @@ import ListItems from './ListItems';
 import ClearList from './ClearList';
 import { addItem, removeItem, clearList, getItems } from './../actions';
 
+
 class Main extends Component {
 
   componentDidMount() {
@@ -28,6 +29,7 @@ class Main extends Component {
   }
 
   renderList = () => {
+    console.log('this.props.items', this.props.items)
     if (this.props.error) {
       return (
         <View style={styles.errorView}>
