@@ -51,8 +51,17 @@ export default (state = initialState, action) => {
 			};
 		
 
-		case "CLEAR_LIST":
-			return [];
+		case "CLEAR_LIST_COMPLETE":
+			return {
+				...state,
+				items: []
+			};
+
+		case "CLEAR_LIST_ERROR":
+			return {
+				...state,
+				error: action.error
+			};
 		  
 		default:
 		  return state;

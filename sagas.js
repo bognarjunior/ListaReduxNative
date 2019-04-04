@@ -1,4 +1,4 @@
-import { takeLatest, put,call,takeEvery } from 'redux-saga/effects';
+import { takeLatest, put,call,takeEvery, select, all } from 'redux-saga/effects';
 import API from './api';
 
 function* getItems() {
@@ -58,10 +58,35 @@ function* removeItem(action) {
 	}
 }
 
+
+function* clearList() {
+	try {
+
+		yield put({ type: 'CLEAR_LIST_REQUEST' });
+		const items = yield select(state => state.items);
+		yield all(
+			items.map( item  => call(API.removeItem, item.id))
+		);
+		yield put({ type: 'CLEAR_LIST_COMPLETE'	});
+
+	} catch (error) {
+
+		yield put({ 
+			type: 'CLEAR_LIST_ERROR',
+			error: error.message
+		});
+
+		yield put({ type: 'GET_ITEMS'	});
+	}
+}
+
+
+
 function* rootSaga() {
   yield takeLatest('GET_ITEMS', getItems);
   yield takeLatest('ADD_ITEM', addItem);
   yield takeEvery('REMOVE_ITEM', removeItem);
+  yield takeLatest('CLEAR_LIST', clearList);
 }
 
 export default rootSaga;
