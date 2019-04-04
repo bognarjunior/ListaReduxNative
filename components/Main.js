@@ -30,6 +30,7 @@ class Main extends Component {
 
   renderList = () => {
     console.log('this.props.items', this.props.items)
+    console.log('this.props.error', this.props.error)
     if (this.props.error) {
       return (
         <View style={styles.errorView}>

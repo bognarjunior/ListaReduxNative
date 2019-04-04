@@ -11,6 +11,12 @@ export default (state = initialState, action) => {
 				...state,
 				items: state.items.concat([action.payload])
 			} 
+
+		case "ADD_ITEM_ERROR":
+			return {
+				...state,
+				error: action.error
+			};
 	
 		case "REMOVE_ITEM":
 			return state.filter(item => item.id !== action.id);

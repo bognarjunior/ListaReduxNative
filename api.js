@@ -37,7 +37,8 @@ const addItem = (value) => {
 			}
 			console.log(item)
 			items = items.concat([item]);
-			resolve(item)
+			resolve(item);
+			// reject(new Error('Marcianos estão atacando a Terra, mas não se preocupe, já estamos cuidando disso!!'));
 		}, 3000);
 	});
 }
