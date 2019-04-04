@@ -17,12 +17,6 @@ export default (state = initialState, action) => {
 				...state,
 				error: action.error
 			};
-	
-		case "REMOVE_ITEM":
-			return state.filter(item => item.id !== action.id);
-
-		case "CLEAR_LIST":
-			return [];
 
 		case "GET_ITEMS_REQUEST":
 			return {
@@ -43,6 +37,22 @@ export default (state = initialState, action) => {
 				loadingItems: false,
 				error: action.error
 			};
+		
+		case "REMOVE_ITEM_COMPLETE":
+			return {
+				...state,
+				items: state.items.filter(item => item.id !== action.id)
+			};
+		
+			case "REMOVE_ITEM_ERROR":
+			return {
+				...state,
+				error: action.error
+			};
+		
+
+		case "CLEAR_LIST":
+			return [];
 		  
 		default:
 		  return state;

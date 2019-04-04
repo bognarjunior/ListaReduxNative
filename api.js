@@ -43,10 +43,12 @@ const addItem = (value) => {
 	});
 }
 
-const removeItem = () => {
+const removeItem = (id) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			items = items.filter(item => item.id !== id);
+			resolve(id);
+			// reject(new Error('Marcianos estão atacando a Terra, mas não se preocupe, já estamos cuidando disso!!'));
 		}, 3000);
 	});
 }

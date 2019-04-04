@@ -39,9 +39,29 @@ function* addItem(action) {
 	}
 }
 
+function* removeItem(action) {
+	try {
+		yield put({ type: 'REMOVE_ITEM_REQUEST' });
+
+		const id = yield call(API.removeItem, action.id);
+		yield put({ 
+			type: 'REMOVE_ITEM_COMPLETE',
+			id
+		});
+
+	} catch (error) {
+
+		yield put({ 
+			type: 'REMOVE_ITEM_ERROR',
+			error: error.message
+		});
+	}
+}
+
 function* rootSaga() {
   yield takeLatest('GET_ITEMS', getItems);
   yield takeLatest('ADD_ITEM', addItem);
+  yield takeLatest('REMOVE_ITEM', removeItem);
 }
 
 export default rootSaga;
