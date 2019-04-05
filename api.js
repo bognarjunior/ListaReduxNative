@@ -35,7 +35,6 @@ const addItem = (value) => {
 				value,
 				id
 			}
-			console.log(item)
 			items = items.concat([item]);
 			resolve(item);
 			// reject(new Error('Marcianos estão atacando a Terra, mas não se preocupe, já estamos cuidando disso!!'));
